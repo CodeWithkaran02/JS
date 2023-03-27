@@ -1,0 +1,1 @@
+ i am a variable of the JS 
