@@ -1,1 +1,5 @@
- i am a variable of the JS 
+let calctor = require("./claculoterpage.js");
+//console.log(calctor);
+console.log(calctor.Addition(4, 6));
+console.log(calctor.Division(55, 5));
+console.log(calctor.Multipletion(15, 13));
