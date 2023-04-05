@@ -1,4 +1,4 @@
-let calctor = require("./claculoterpage.js");
+let calctor = require("./modele2/claculoterpage.js");
 //console.log(calctor);
 console.log(calctor.Addition(4, 6));
 console.log(calctor.Division(55, 5));
