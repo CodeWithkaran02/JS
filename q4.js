@@ -3,10 +3,17 @@
 let fs = require("fs");
 let path = require("path");
 
-let folderkaPath = path.join(__dirname, "..", " unorgantal");
+let folderkaPath = path.join(__dirname, "unorgantal");
 
-console.log(folderkaPath);
+//console.log(folderkaPath);
 
 let content = fs.readdirSync(folderkaPath);
 
+//console.log(content);
+let extArr = [];
+for (let i = 0; i < content.length; i++) {
+    let name = content[i];
+    let extname = path.extname(name);
+    extArr.push(extArr);
+}
 console.log(content);
