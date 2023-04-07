@@ -12,7 +12,7 @@ let path = require("path");
 let folderpath = process.argv[2];
 
 let folderExists = fs.existsSync(folderpath);
-let extension = {
+let extensions = {
     Audio: [".mp3"],
     Vedio: [".mp4"],
     Document: [".doc", ".xlsx", ".pdf", ".txt"],
