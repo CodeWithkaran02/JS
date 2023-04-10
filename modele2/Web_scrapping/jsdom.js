@@ -1,5 +1,5 @@
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
-const dom = new JSDOM('<!Doctype <html><p>Hello World <p>');
-console.log(don.window.document.querySelector("p").textContent);
+const dom = new JSDOM('<!DOCTYPE html><p>Hello World <p>');
+console.log(dom.window.document.querySelector("p").textContent);
 
