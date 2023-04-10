@@ -1,7 +1,6 @@
 //var
 var a = 20;
 console.log(a);
-
 //let 
 let c = 10;
 //a = 10;
