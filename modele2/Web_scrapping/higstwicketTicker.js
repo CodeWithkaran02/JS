@@ -9,9 +9,25 @@ function cb(error, response, html) {
         console.log(error);
     }
     else {
-        console.log(html);
+
         const dom = new JSDOM(html);
         const document = dom.window.document;
+        let bowlwesTable = document.querySelectorAll(".table.bowler");
+        for (let i = 1; i < bowlwesTable.length; i++) {
+            let rows = bowlwesTable[i].querySelectorAll("tbody.tr");
+
+            for (let j = 0; j < rows; j++) {
+                let tds = rows[j] / querySelectorAll("td");
+                if (tds.length > 1) {
+                    let name = tds[0].textContent;
+                    let wicket = tds[4].textContent;
+
+                    console.log("Name of the Bowler --> ", name, "Wicket -->", wicket);
+                }
+            }
+        }
+
+
 
     }
 }
