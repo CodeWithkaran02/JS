@@ -12,21 +12,33 @@ function cb(error, response, html) {
 
         const dom = new JSDOM(html);
         const document = dom.window.document;
+        let mostWicket = 0;
+        let nameofHightWicketTecker = " ";
+
         let bowlwesTable = document.querySelectorAll(".table.bowler");
         for (let i = 1; i < bowlwesTable.length; i++) {
-            let rows = bowlwesTable[i].querySelectorAll("tbody.tr");
+            //let rows = bowlwesTable[i].querySelectorAll("tbody.tr");
+
 
             for (let j = 0; j < rows; j++) {
-                let tds = rows[j] / querySelectorAll("td");
+                let tds = row[j].querySelectorAll("td");
+
+
                 if (tds.length > 1) {
                     let name = tds[0].textContent;
                     let wicket = tds[4].textContent;
 
-                    console.log("Name of the Bowler --> ", name, "Wicket -->", wicket);
+                    //  console.log("Name of the Bowler --> ", name, "Wicket -->", wicket);
+                    if (wicket > mostWicket) {
+                        mostWicket = wicket;
+                        nameofHightWicketTecker = name;
+
+                    }
                 }
             }
         }
-
+        console.log("Name of Wicket taker :", nameofHightWicketTecker);
+        console.log("Name of the Wicket teker:", mostWicket);
 
 
     }
