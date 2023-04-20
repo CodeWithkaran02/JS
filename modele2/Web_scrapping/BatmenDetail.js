@@ -18,7 +18,24 @@ function cb(error, response, html) {
         for (let i = 0; i < batsman; i++) {
             let batmanLink = batsman[i].href;
             let completeBatsmanLink = "https://www.espncricinfo.com" + batsmanLink;
-            console.log(completeBatsmanLink);
+            // console.log(completeBatsmanLink);
+            request(completeBatsmanLink, cb2)
         }
+    }
+}
+
+function cb2(error, response, html) {
+    if (error) {
+        console.log(error);
+
+    }
+    else {
+        const dom = new JSDOM(html);
+        const document = dom.window.document;
+        let playerDetail = document.querySelectorAll(".player-card-padding .player_overview-grid");
+        let playerH5 = playerDetail.querySelectorAll("div h5");
+        let fullname = playerH5[0].textContent;
+        let DOB = playerh5[1].textContent;
+        console.log("fullname:", fullname, "date of Brith :", DOB);
     }
 }
