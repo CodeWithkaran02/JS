@@ -2,7 +2,10 @@ const request = require("request");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const link = "https://www.espncricinfo.com/series/indian-premier-league-2023-1345038/punjab-kings-vs-lucknow-super-giants-38th-match-1359512/live-cricket-score";
+const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/match-schedule-fixtures-and-results";
+
+let leaderboard = [];
+let counter = 0;
 
 request(link, cb);
 function cb(error, response, html) {
@@ -19,6 +22,7 @@ function cb(error, response, html) {
             console.log(link);
             let completlink = "https://www.espncricinfo.com" + link;
             console.log(completlink);
+            counter++
         }
     }
 }
@@ -41,5 +45,42 @@ function cb2(error, response, html) {
                 processPlayer(name, runs, balls, fours, sixes);
             }
         }
+        counter--;
+        if (counter == 0) {
+            console.log(leaderboard);
+            let data = JSON.stringify(leaderboard);
+            fs.writeFileSync('BatsmenStats.json', data);
+        }
     }
 }
+
+function processPlayer(name, runs, balls, fours, sixes) {
+    runs = Number(runs);
+    balls = Number(balls);
+    fours = Number(fours);
+    sixes = Number(sixes);
+    for (let i = 0; i < leaderboard.length; i++) {
+        let playerObj = leaderboard[i];
+        if (playerObj.Name == name) {
+            //will do some work here
+            playerObj.Runs += runs;
+            playerObj.Innings += 1;
+            playerObj.Balls += balls;
+            playerObj.Fours += fours;
+            playerObj.Sixes += sixes;
+            return;
+        }
+    }
+    // code coming here means we did not find our player inside leaderboard
+    let obj = {
+        Name: name,
+        Innings: 1,
+        Runs: runs,
+        Balls: balls,
+        Fours: fours,
+        Sixes: sixes
+    }
+    leaderboard.push(obj);
+}
+
+// console.log("Line 80: ",leaderboard);
