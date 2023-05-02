@@ -4,7 +4,7 @@ const { JSDOM } = jsdom;
 
 const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/royal-challengers-bangalore-vs-kolkata-knight-riders-eliminator-1254115/full-scorecard";
 
-request(link, cb)
+request(link, cb);
 
 function cb(error, response, html) {
     if (error)
