@@ -18,7 +18,7 @@ function cb(error, response, html) {
         for (let i = 0; i < batsman; i++) {
             let batmanLink = batsman[i].href;
             let completeBatsmanLink = "https://www.espncricinfo.com" + batsmanLink;
-            // console.log(completeBatsmanLink);
+            //console.log(completeBatsmanLink);
             request(completeBatsmanLink, cb2)
         }
     }

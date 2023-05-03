@@ -2,7 +2,7 @@ const request = require("request");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/match-schedule-fixtures-and-results";
+const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/match-results";
 
 let leaderboard = [];
 let counter = 0;
@@ -22,7 +22,7 @@ function cb(error, response, html) {
             console.log(link);
             let completlink = "https://www.espncricinfo.com" + link;
             console.log(completlink);
-            counter++
+            counter++;
         }
     }
 }

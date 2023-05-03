@@ -1,7 +1,7 @@
 const request = require('request');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
-const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/royal-challengers-bangalore-vs-kolkata-knight-riders-eliminator-1254115/full-scorecard";
+const link = "https://www.espncricinfo.com/series/indian-premier-league-2023-1345038/gujarat-titans-vs-delhi-capitals-44th-match-1359518/full-scorecard";
 
 request(link, cb);
 function cb(error, response, html) {
@@ -15,12 +15,12 @@ function cb(error, response, html) {
         let mostWicket = 0;
         let nameofHightWicketTecker = " ";
 
-        let bowlwesTable = document.querySelectorAll(".table.bowler");
-        for (let i = 1; i < bowlwesTable.length; i++) {
-            //let rows = bowlwesTable[i].querySelectorAll("tbody.tr");
+        let bowlwesTable = document.querySelectorAll(".ds-w-full.ds-table.ds-table-xs.ds-table-auto");
+        for (let i = 0; i < bowlwesTable.length; i++) {
+            let rows = bowlwesTable[i].querySelectorAll("tbody td");
 
 
-            for (let j = 0; j < rows; j++) {
+            for (let j = 0; j < rows.length; j++) {
                 let tds = row[j].querySelectorAll("td");
 
 
@@ -32,14 +32,16 @@ function cb(error, response, html) {
                     if (wicket > mostWicket) {
                         mostWicket = wicket;
                         nameofHightWicketTecker = name;
-
                     }
+
                 }
             }
         }
         console.log("Name of Wicket taker :", nameofHightWicketTecker);
         console.log("Name of the Wicket teker:", mostWicket);
-
-
     }
+
+
+
 }
+
