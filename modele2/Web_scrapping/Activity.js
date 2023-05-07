@@ -2,7 +2,7 @@ const request = require('request');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/royal-challengers-bangalore-vs-kolkata-knight-riders-eliminator-1254115/full-scorecard";
+const link = "https://www.espncricinfo.com/series/indian-premier-league-2023-1345038/gujarat-titans-vs-delhi-capitals-44th-match-1359518/full-scorecard";
 
 request(link, cb);
 
@@ -12,7 +12,7 @@ function cb(error, response, html) {
     else {
         const dom = new JSDOM(html);
         const document = dom.window.document;
-        let teamsName = document.querySelectorAll(".match-info.match-info-MATCH.match-info-MATCH-half-width .teams .name");
+        let teamsName = document.querySelectorAll(".ci-team-score.ds-flex.ds-justify-between.ds-items-center.ds-text-typo.ds-mb-2");
         console.log(teamsName[0].textContent);
         console.log(teamsName[1].textContent);
     }

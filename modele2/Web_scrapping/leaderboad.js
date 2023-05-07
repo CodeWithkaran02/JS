@@ -1,8 +1,10 @@
 const request = require("request");
+const fs = require("fs");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
 const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/match-results";
+
 
 let leaderboard = [];
 let counter = 0;
@@ -15,11 +17,15 @@ function cb(error, response, html) {
     else {
         const dom = new JSDOM(html);
         const document = dom.window.document;
-        let allScorecardTags = document.querySelectorAll('a[data-hover="Scorecard"]');
 
-        for (let i = 0; i < allScorecardTags.length; i++) {
-            let link = allScorecardTags[i].href;
-            console.log(link);
+        let allScorecardTags = document.querySelectorAll("ds-p-4 ds-border-y ds-border-line")
+        /*  let allScorecardTags = document.querySelectorAll('.ds-flex.ds-flex-col.ds-mt-2.ds-mb-2');*/
+        //   console.log(allScorecardTags.length);
+
+        for (let i = 0; i < 60; i++) {
+            /*   let anchortagAll = allScorecardTags[i].querySelectorAll("ads-text-compact-xs ds-mr-0.5");
+               let link = anchortagAll[2].href;*/
+            //console.log(link);
             let completlink = "https://www.espncricinfo.com" + link;
             console.log(completlink);
             counter++;
@@ -32,16 +38,17 @@ function cb2(error, response, html) {
     } else {
         const dom = new JSDOM(html);
         const document = dom.window.document;
-        let batsmenRow = document.querySelectorAll('tbody [class="ds-border-b ds-border-line ds-text-tight-s"]');
+        let batsmenRow = document.querySelectorAll('ds-w-0 ds-whitespace-nowrap ds-min-w-max ds-flex ds-items-center');
         for (let i = 0; i < batsmenRow.length; i++) {
-            let cells = batsmenRow[i].querySelectorAll("td");
+            let cells = batsmenRow[i].querySelectorAll("tr");//.ds-table-row-compact-bottom.ds-border-none
+            console.log(batsmenRow);
             if (cells.length == 8) {
                 let name = cells[0].textContent;
                 let runs = cells[2].textContent;
                 let balls = cells[3].textContent;
                 let fours = cells[5].textContent;
                 let sixes = cells[6].textContent;
-                // console.log("Name : ",name,"Runs : ",runs,"Balls : ",balls,"Fours : ",fours,"Sixes : ",sixes);
+                console.log("Name : ", name, "Runs : ", runs, "Balls : ", balls, "Fours : ", fours, "Sixes : ", sixes);
                 processPlayer(name, runs, balls, fours, sixes);
             }
         }
@@ -49,7 +56,7 @@ function cb2(error, response, html) {
         if (counter == 0) {
             console.log(leaderboard);
             let data = JSON.stringify(leaderboard);
-            fs.writeFileSync('BatsmenStats.json', data);
+            fs.writeFileSync("BatsmenStats.json", data);
         }
     }
 }
