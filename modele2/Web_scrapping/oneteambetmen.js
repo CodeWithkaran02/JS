@@ -14,7 +14,8 @@ function cb(error, response, html) {
         const dom = new JSDOM(html);
         const document = dom.window.document;
 
-        let batsman = document.querySelectorAll('.ds-table-row-compact-bottom.ds-border-none');
-        console.log(batsman.length);
+        let batsman = document.querySelectorAll(".ds-table-row-compact-bottom.ds-border-none");
+        console.log("hello bater ");
+        console.log(batsman.length)
     }
 }

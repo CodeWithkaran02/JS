@@ -16,6 +16,7 @@ function cb(error, response, html) {
         let nameofHightWicketTecker = " ";
 
         let bowlwesTable = document.querySelectorAll(".ds-w-full.ds-table.ds-table-xs.ds-table-auto");
+        console.log(bowlwesTable.length);
         for (let i = 0; i < bowlwesTable.length; i++) {
             let rows = bowlwesTable[i].querySelectorAll("tbody td");
 
