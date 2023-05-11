@@ -5,23 +5,20 @@ Meta-Tags:
  Javascript, JS, interview, questions, interview questions,variables,scope,practice
 
 Description:
-Find output of the following:
-
-
-let a = 2;
-{
-  let a = 3;
-  {
-    let a = 4;
-    {
-      let a = 5;
-      console.log(a);
-    }
-    console.log(a);
-  }
-  console.log(a);
-}
-console.log(a);
+// var a = 2;
+// {
+//   var a = 3;
+//   {
+//     var a = 4;
+//     {
+//       var a = 5;
+//       console.log(a);
+//     }
+//     console.log(a);
+//   }
+//   console.log(a);
+// }
+// console.log(a);
 
 
 Options:
