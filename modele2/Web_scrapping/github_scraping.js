@@ -17,7 +17,17 @@ function cb(error, response, html) {
             let link = allAnchor[i].href;
             let completlink = "https://github.com/topics" + link;
             console.log(completlink);
+            request(completlink, cb2);
         }
     }
 }
+function cb2(error, response, html) {
+    if (error) {
+        console.log(error);
+    }
+    else {
+        const dom = new JSDOM(html);
+        const document = dom.window.document;
 
+    }
+}

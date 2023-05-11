@@ -2,7 +2,7 @@ const request = require("request");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/sunrisers-hyderabad-vs-chennai-super-kings-44th-match-1254091/full-scorecard";
+const link = "https://www.cricbuzz.com/live-cricket-scorecard/66365/gt-vs-lsg-51st-match-indian-premier-league-2023";
 
 request(link, cb);
 function cb(error, response, html) {
@@ -14,8 +14,13 @@ function cb(error, response, html) {
         const dom = new JSDOM(html);
         const document = dom.window.document;
 
-        let batsman = document.querySelectorAll(".ds-table-row-compact-bottom.ds-border-none");
-        console.log("hello bater ");
-        console.log(batsman.length)
+        let batsman = document.querySelectorAll(".cb-col.cb-col-25 ");
+        for (let i = 0; i < batsman.length; i++) {
+            let link = batsman[i].href;
+            let completlink = "https://www.cricbuzz.com" + link;
+            console.log(completlink);
+
+        }
+
     }
 }
