@@ -2,7 +2,7 @@ const fs = require("fs");
 
 console.log("Before");
 
-let fikapromise = fs.promises.readFile("f1.txt");
+let fikapromise = fs.promises.readFile("promisestxtfile.txt");
 console.log(fikapromise);
 
 fikapromise.then(function (data) {
