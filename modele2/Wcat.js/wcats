@@ -1,3 +1,10 @@
 let fs = require("request");
 let inputArr = process.argv.slice(2);
 console.log(inputArr);
+let buffer = "";
+
+for (let i =0; i<inputArr.length;i++){
+    let fileContent = fs.readFileSyns(inputArr[i]);
+    buffer +=fileContent;
+}
+console.log(buffer);
