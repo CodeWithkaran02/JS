@@ -7,17 +7,17 @@
 </head>
 
 <body>
-    <button> Say hello </button>
+    <button> Sayhello </button>
 
     <script>
         let btn = document.querySelector("button");
 
-        btn.addEventList("click ", function () {
+        btn.addEventListener("click ", function () {
             let ptag = document.createElement("p");
 
             ptag.innerText = "hello ";
-            let bodytag = document.querySelector(ptag);
-
+            let bodytag = document.querySelector("body");
+            bodytag.appendChild(ptag);
         });
 
 
