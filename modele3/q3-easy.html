@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title> document </title>
+</head>
+
+<body>
+    <button> Say hello </button>
+
+    <script>
+        let btn = document.querySelector("button");
+
+        btn.addEventList("click ", function () {
+            let ptag = document.createElement("p");
+
+            ptag.innerText = "hello ";
+            let bodytag = document.querySelector(ptag);
+
+        });
+
+
+    </script>
+</body>
+
+</html>
