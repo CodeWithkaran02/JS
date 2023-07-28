@@ -1,16 +1,30 @@
-let cellcontent = document.querySelector(".cell-contain")
+let cellcontentDiv = document.querySelector(".cell-contain")
 
 function initCells() {
-    let cell = "";
+    let cellconten = "<div class = 'top-left-cell'></div>";
+    //top-row
+    cellconten += "<div class = 'top-row'>";
+    for (let i = 0; i < 26; i++) {
+        cellconten += `<div class = 'top-row-cell'>${String.fromCharCode(65 + i)}`;
+    }
+    cellconten += "</div>";
+
+    //left-col
+    cellconten += "<div class = 'left-col'>"
     for (let i = 0; i < 100; i++) {
-        cell += "<div class = 'row' >";
+        cellconten += `<div class = 'left-col-cell'>${i + 1}</div>`;
+    }
+    cellconten += "</div>";
+
+    for (let i = 0; i < 100; i++) {
+        cellconten += "<div class = 'row' >";
         //column
         for (let j = 0; j < 26; j++) {
-            cell += "<div class='cell'>cell</div>";
+            cellconten += "<div class='cell'contentEditable></div>";
         }
 
-        cell += "</div>";
+        cellconten += "</div>";
     }
-    cellcontent.innerHTML = cell;
+    cellcontentDiv.innerHTML = cellconten;
 }
 initCells();
