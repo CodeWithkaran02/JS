@@ -18,11 +18,11 @@
     height: 85vh;
     background-color: aqua;
     overflow: auto;
-    display: flex;
+    /* display: flex; */
 }
 
 .sheets {
-    border: 0.5px solid px;
+    border: 0.5px solid;
     height: 30px;
 }
 
@@ -37,48 +37,54 @@
 }
 
 .top-left-cell {
-    border-right: 0.1px solid var(--border-color);
-    border-bottom: 0.1px solid var(--border-color);
-    height: 20px;
-    width: 40px;
-    background-color: var(--cell-background);
+    border-right: 0.1px solid;
+    border-bottom: 0.1px solid;
+    height: 30px;
+    width: 30px;
+    background-color: gray;
     position: absolute;
+
 
 }
 
 .top-row {
+
     display: flex;
     position: absolute;
-    background-color: var(--cell-background);
-    left: 40px;
+    background-color: gray;
+    left: 30px;
+
 
 }
 
 .top-row-cell {
-    height: 20px;
-    width: 90px;
-    border-bottom: 0.1px solid var(--border-color);
-    border-left: 0.1px solid var(--border-color);
+    height: 30px;
+    width: 100px;
+    border-bottom: 0.1px solid;
+    border-left: 0.1px solid;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .left-col {
-    background-color: var(--cell-background);
+    background-color: gray;
     position: absolute;
     left: 0px;
-    top: 20px;
-
+    top: 90px;
 }
 
 .left-col-cell {
-    height: 20px;
-    width: 40px;
-    border-bottom: 0.1px solid var(--border-color);
+    height: 30px;
+    width: 30px;
+    border-bottom: 0.1px solid;
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-
+.cells {
+    position: absolute;
+    top: 90px;
+    left: 30px;
 }
