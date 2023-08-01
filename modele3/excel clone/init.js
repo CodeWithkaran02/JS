@@ -20,9 +20,8 @@ function initCells() {
         cellconten += "<div class = 'row' >";
         //column
         for (let j = 0; j < 26; j++) {
-            cellconten += "<div class='cell' contentEditable ></div>";
+            cellconten += `<div class='cell' rowid = '${i}' colid ='${j}' contentEditable ></div>`;
         }
-
         cellconten += "</div>";
     }
     cellconten += "</div>"
@@ -41,10 +40,11 @@ function initdb() {
                 name: name,
                 value: ""
             }
-            row.push(cellobject)
+            row.push(cellobject);
 
         }
         db.push(row);
     }
 }
-initdb;
+initdb();
+console.log(db);
