@@ -22,8 +22,23 @@ for (let i = 0; i < allcell.length; i++) {
         let rowID = Number(e.target.getAttribute("rowid"));
         let colID = Number(e.target.getAttribute("colid"));
         let address = String.fromCharCode(65 + colID) + (rowID + 1) + "";
-        console.log(address);
+        // console.log(address);
         addressInput.value = address;
 
     })
+    allcell[i].addEventListener("blur", function (e) {
+        let cellvalue = e.target.textContent;
+        let rowID = Number(e.target.getAttribute("rowid"));
+        let colID = Number(e.target.getAttribute("colid"));
+        let cellobject = db[rowID][colID];
+        if (cellobject.value == cellvalue) {
+            return;
+        }
+        cellobject.value = cellvalue;
+        console.log("After update", cellobject);
+
+    })
+
+
+
 }
