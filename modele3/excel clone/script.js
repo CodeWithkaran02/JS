@@ -28,8 +28,7 @@ for (let i = 0; i < allcell.length; i++) {
     })
     allcell[i].addEventListener("blur", function (e) {
         let cellvalue = e.target.textContent;
-        let rowID = Number(e.target.getAttribute("rowid"));
-        let colID = Number(e.target.getAttribute("colid"));
+        let { rowID, colID } = getRowIdColIdFromElement(e.target);
         let cellobject = db[rowID][colID];
         if (cellobject.value == cellvalue) {
             return;
@@ -38,7 +37,12 @@ for (let i = 0; i < allcell.length; i++) {
         console.log("After update", cellobject);
 
     })
-
-
-
+}
+function getRowIdColIdFromElement(element) {
+    let rowID = element.getAttribute("rowid");
+    let colID = element.getAttribute("colid");
+    return {
+        rowID,
+        colID
+    }
 }
