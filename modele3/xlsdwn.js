@@ -15,7 +15,7 @@ document.getElementById('downloadExcelButton').addEventListener('click', () => {
     const blobURL = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = blobURL;
-    link.download = 'survey_list.xlsx';
+    link.download = 'list.xlsx';
     link.click();
 
     setTimeout(() => {

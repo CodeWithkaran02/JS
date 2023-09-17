@@ -1,0 +1,9 @@
+<script>
+    swal({
+        icon: 'error',
+        title: 'Aborted',
+        text: 'Project already present in our database!',
+    }).then(function () {
+        window.location = 'project.php';
+    });                        
+</script>";

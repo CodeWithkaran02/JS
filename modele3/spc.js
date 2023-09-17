@@ -30,4 +30,4 @@
         // Your chart options
     }
 });
-</script>
+
